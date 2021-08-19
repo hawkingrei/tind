@@ -13,4 +13,3 @@ COPY tidb.toml /conf
 COPY tikv.toml /conf
 COPY entrypoint.sh /
 RUN chmod +x entrypoint.sh
-ENTRYPOINT [ "./entrypoint.sh" ]

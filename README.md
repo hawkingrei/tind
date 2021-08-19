@@ -5,7 +5,7 @@ TiDB in Docker
 ## Usage
 
 ```
-> $ sudo docker run -d -p 4001:4000 hawkingrei/tind:v4.0.14                                                                                                                           [±main ●]
+> $ sudo docker run --entrypoint='/entrypoint.sh' -d -p 4001:4000 hawkingrei/tind:v4.0.14                                                                                                                           [±main ●]
 ca060d6b234aed8c5d2ad0705154cd8bbc92a8dfaa6d11e7a0faaa68509eb034
 > $ mycli -P 4001  -h 127.0.0.1  -u root                                                                                                                                              [±main ●]
 MySQL 5.7.25
