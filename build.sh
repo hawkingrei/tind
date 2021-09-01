@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -x
 TIDB_VERSION_SLICE=(
+    'v5.2.0'
     'v5.1.1' 
     'v5.1.0' 
     'v5.0.3' 
