@@ -26,7 +26,11 @@ TIDB_VERSION_SLICE=(
 for version in "${TIDB_VERSION_SLICE[@]}"
 do
     export TIDB_VERSION=${version}
+    export BUILD_VERSION=1
     echo ${version}
-	docker build --no-cache -t hawkingrei/tind:${TIDB_VERSION}  --build-arg TIDB_VERSION .
+	docker build --no-cache -t hawkingrei/tind:${TIDB_VERSION}  --build-arg TIDB_VERSION  --build-arg BUILD_VERSION .
     docker push hawkingrei/tind:${TIDB_VERSION}
+    export BUILD_VERSION=2
+    docker build -t hawkingrei/tind:${TIDB_VERSION}-standalone  --build-arg TIDB_VERSION  --build-arg BUILD_VERSION .
+    docker push hawkingrei/tind:${TIDB_VERSION}-standalone
 done
