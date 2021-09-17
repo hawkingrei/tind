@@ -4,6 +4,7 @@ FROM buildpack-deps:focal as base
 COPY setup.sh /
 ARG TIDB_VERSION=v5.1.0
 ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 COPY tidb.conf /etc/supervisor/conf.d/
 COPY tikv.conf /etc/supervisor/conf.d/
 COPY pd.conf /etc/supervisor/conf.d/
