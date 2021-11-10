@@ -14,13 +14,12 @@ apt-get install -y \
     python3-pip \
     python3-distutils \
     python3-setuptools \
-    \
     python2.? \
     python2.?-dev \
     python3.? \
     python3.?-dev \
     python3.?-venv \ 
-    supervisor 
+    supervisor
 
 pip3 install \
     flit \
