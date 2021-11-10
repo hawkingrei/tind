@@ -18,8 +18,8 @@ apt-get install -y \
     python2.?-dev \
     python3.? \
     python3.?-dev \
-    python3.?-venv \ 
-    supervisor
+    python3.?-venv \
+    supervisor 
 
 pip3 install \
     flit \
