@@ -5,7 +5,7 @@ set -eu
 
 apt-get update
 apt-get install -y gnupg software-properties-common
-add-apt-repository ppa:deadsnakes/ppa
+add-apt-repository -y ppa:deadsnakes/ppa
 
 apt-get update
 apt-get install -y \
