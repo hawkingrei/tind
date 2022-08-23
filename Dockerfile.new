@@ -13,6 +13,10 @@ COPY tikv.toml /conf/tikv.toml
 COPY entrypoint.sh /
 ADD https://download.pingcap.org/tidb-community-server-${TIDB_VERSION}-linux-amd64.tar.gz /
 RUN chmod +x entrypoint.sh && bash setup.sh && rm /setup.sh && tar -xvf tidb-community-server-${TIDB_VERSION}-linux-amd64.tar.gz && \
+    cd tidb-community-server-${TIDB_VERSION}-linux-amd64 && \
+    tar -xvf pd-${TIDB_VERSION}-linux-amd64.tar.gz && \
+    tar -xvf tidb-${TIDB_VERSION}-linux-amd64.tar.gz && \
+    tar -xvf tikv-${TIDB_VERSION}-linux-amd64.tar.gz && \
     cp -r tidb-community-server-${TIDB_VERSION}-linux-amd64/bin/tikv-server /bin/ && \
     cp -r tidb-community-server-${TIDB_VERSION}-linux-amd64/bin/tidb-server /bin/ && \
     cp -r tidb-community-server-${TIDB_VERSION}-linux-amd64/bin/pd-server /bin/ && \
