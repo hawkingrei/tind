@@ -19,9 +19,13 @@ COPY entrypoint.sh /
 COPY --from=builder /go/tidb/bin/tidb-server /bin/
 ADD https://download.pingcap.org/tidb-community-server-${TIDB_VERSION}-linux-amd64.tar.gz /
 RUN chmod +x entrypoint.sh && bash setup.sh && rm /setup.sh && tar -xvf tidb-${TIDB_VERSION}-linux-amd64.tar.gz && \
-    cp -r tidb-${TIDB_VERSION}-linux-amd64/bin/tikv-server /bin/ && \
-    cp -r tidb-${TIDB_VERSION}-linux-amd64/bin/pd-server /bin/ && \
-    rm -rf tidb-${TIDB_VERSION}-linux-amd64* && \
+    cd tidb-community-server-${TIDB_VERSION}-linux-amd64 && \
+    tar -xvf pd-${TIDB_VERSION}-linux-amd64.tar.gz && \
+    tar -xvf tidb-${TIDB_VERSION}-linux-amd64.tar.gz && \
+    tar -xvf tikv-${TIDB_VERSION}-linux-amd64.tar.gz && \
+    cp -r tikv-server /bin/ && \
+    cp -r pd-server /bin/ && \
+    rm -rf tidb-community-server-${TIDB_VERSION}-linux-amd64* && \
     mkdir -p /data/tikv && mkdir -p /data/pd
 
 
