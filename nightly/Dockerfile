@@ -25,8 +25,8 @@ RUN chmod +x entrypoint.sh && bash setup.sh && rm /setup.sh && tar -xvf tidb-com
     tar -xvf tikv-${TIDB_VERSION}-linux-amd64.tar.gz && \
     cp -r tikv-server /bin/ && \
     cp -r pd-server /bin/ && \
-    rm -rf tidb-community-server-${TIDB_VERSION}-linux-amd64* && \
-    mkdir -p /data/tikv && mkdir -p /data/pd
+    rm -rf /tidb-community-server-${TIDB_VERSION}-linux-amd64* && \
+    mkdir -p /data/tikv && mkdir -p /data/pd && mkdir -p /data/log
 
 
 FROM base AS branch-version-1
