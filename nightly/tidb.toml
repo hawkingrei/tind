@@ -1,0 +1,9 @@
+new_collations_enabled_on_first_bootstrap = true
+tidb_enable_change_column_type = true
+
+[experimental]
+allow-expression-index = true
+
+[tikv-client.async-commit]
+safe-window = 0
+allowed-clock-drift = 0
