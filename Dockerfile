@@ -11,7 +11,7 @@ COPY pd.conf /etc/supervisor/conf.d/
 COPY tidb.toml /conf/tidb.toml
 COPY tikv.toml /conf/tikv.toml
 COPY entrypoint.sh /
-ADD https://download.pingcap.org/tidb-${TIDB_VERSION}-linux-amd64.tar.gz /
+ADD https://tiup-mirrors.pingcap.com/tidb-${TIDB_VERSION}-linux-amd64.tar.gz /
 RUN chmod +x entrypoint.sh && bash setup.sh && rm /setup.sh && tar -xvf tidb-${TIDB_VERSION}-linux-amd64.tar.gz && \
     cp -r tidb-${TIDB_VERSION}-linux-amd64/bin/tikv-server /bin/ && \
     cp -r tidb-${TIDB_VERSION}-linux-amd64/bin/tidb-server /bin/ && \
