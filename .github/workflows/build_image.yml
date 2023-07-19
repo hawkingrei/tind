@@ -1,10 +1,10 @@
-name: Daily Build
+name: Build image
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - test-action
+      - use-github-action
 
 jobs:
   diff_tags:
@@ -40,7 +40,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push
+    - name: Build and push [default]
       uses: docker/build-push-action@v4
       with:
         context: .
@@ -51,3 +51,14 @@ jobs:
           "TIDB_VERSION=${{ matrix.tag }}"
           "BUILD_VERSION=1"
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/tind:${{ matrix.tag }}
+    - name: Build and push [standalone]
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        platforms: linux/amd64
+        file: ./Dockerfile
+        build-args: |
+          "TIDB_VERSION=${{ matrix.tag }}"
+          "BUILD_VERSION=2"
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/tind:${{ matrix.tag }}-standalone

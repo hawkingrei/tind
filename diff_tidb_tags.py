@@ -1,4 +1,4 @@
-# This script is used to get the diff of tidb tags between pingcap and wangdi4zm
+# This script is used to get the diff of tidb tags between pingcap and `DOCKERHUB_USERNAME`
 import os
 import json
 import re
