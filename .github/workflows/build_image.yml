@@ -2,9 +2,8 @@ name: Build image
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - use-github-action
+  schedule:
+    - cron: '0 1 * * *'
 
 jobs:
   diff_tags:
