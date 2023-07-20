@@ -1,9 +1,10 @@
 name: Build image
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 2 * * *'
+
+  workflow_dispatch:
 
 jobs:
   diff_tags:
