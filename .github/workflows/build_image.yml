@@ -19,8 +19,6 @@ jobs:
       id: tag_list
     outputs:
       tag_list: ${{ steps.tag_list.outputs.DIFF_TAGS}}
-  
-
 
   build:
     needs: diff_tags
