@@ -22,7 +22,7 @@ jobs:
 
   build:
     needs: diff_tags
-    if: ${{ fromJson(needs.diff_tags.outputs.tag_list) == [] }}
+    if: ${{ fromJson(needs.diff_tags.outputs.tag_list) }} == []
     strategy:
       fail-fast: true
       matrix:
